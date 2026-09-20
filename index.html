@@ -4,761 +4,282 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Tahrim Kobir Riyad — Portfolio</title>
+  <meta name="description" content="Portfolio of Md Tahrim Kobir Riyad, B.Sc. Agriculture (Hons.) student and research assistant at Sylhet Agricultural University.">
+  <link rel="icon" type="image/png" href="favicon1.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #FAF9F6;
-      color: #4A4D4A;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Color tokens */
-    :root {
-      --primary: #2B6D4A;
-      --primary-light: #EBF3ED;
-      --text-primary: #1A1C1A;
-      --text-secondary: #7A807A;
-      --border: #E8EBE9;
-      --surface: #FFFFFF;
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --ease-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
-    }
-
-    /* Layout */
-    .container {
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* Sidebar navigation */
-    .sidebar {
-      width: 280px;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      padding: 32px 24px;
-      overflow-y: auto;
-      position: fixed;
-      height: 100vh;
-      z-index: 100;
-    }
-
-    .sidebar-header {
-      margin-bottom: 40px;
-      animation: slideDown 0.6s var(--ease) backwards;
-    }
-
-    .sidebar-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    .sidebar-header p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    .nav-list {
-      list-style: none;
-    }
-
-    .nav-item {
-      margin-bottom: 8px;
-      animation: slideDown 0.6s var(--ease) backwards;
-    }
-
-    .nav-item:nth-child(1) { animation-delay: 100ms; }
-    .nav-item:nth-child(2) { animation-delay: 150ms; }
-    .nav-item:nth-child(3) { animation-delay: 200ms; }
-    .nav-item:nth-child(4) { animation-delay: 250ms; }
-    .nav-item:nth-child(5) { animation-delay: 300ms; }
-    .nav-item:nth-child(6) { animation-delay: 350ms; }
-    .nav-item:nth-child(7) { animation-delay: 400ms; }
-
-    .nav-btn {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid transparent;
-      border-radius: 10px;
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-align: left;
-      transition: all 300ms var(--ease);
-      position: relative;
-    }
-
-    .nav-btn::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--primary-light);
-      border-radius: 10px;
-      z-index: -1;
-      transform: scale(0);
-      transition: transform 400ms var(--ease-spring);
-    }
-
-    .nav-btn:hover {
-      color: var(--primary);
-      border-color: var(--border);
-    }
-
-    .nav-btn:hover::before {
-      transform: scale(1);
-    }
-
-    .nav-btn.active {
-      color: var(--primary);
-      background: var(--primary-light);
-      border-color: var(--primary);
-    }
-
-    /* Main content area */
-    .main-content {
-      margin-left: 280px;
-      flex: 1;
-      overflow-y: auto;
-      padding: 48px;
-      background: #FAF9F6;
-    }
-
-    /* Panels */
-    .panel {
-      display: none;
-      animation: fadeIn 0.5s var(--ease);
-    }
-
-    .panel.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Panel sections */
-    .panel-header {
-      margin-bottom: 32px;
-    }
-
-    .panel-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
-
-    .panel-subtitle {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
-
-    /* Two-column layout for content + photos */
-    .panel-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .content-text h3 {
-      font-size: 1.2rem;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-      margin-top: 24px;
-      font-weight: 500;
-    }
-
-    .content-text h3:first-child {
-      margin-top: 0;
-    }
-
-    .content-text p {
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-      line-height: 1.8;
-      font-size: 0.95rem;
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin: 6px 8px 6px 0;
-      transition: all 300ms var(--ease);
-    }
-
-    .tag:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Photo gallery placeholder */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .photo-placeholder {
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, var(--primary-light) 0%, #E8F4F0 100%);
-      border-radius: 12px;
-      border: 2px dashed var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 16px;
-      transition: all 400ms var(--ease);
-      cursor: pointer;
-    }
-
-    .photo-placeholder:hover {
-      background: linear-gradient(135deg, #D4E8DE 0%, #D8F0E8 100%);
-      border-color: var(--primary);
-      transform: translateY(-4px);
-    }
-
-    .photo-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    /* Cards grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: all 400ms var(--ease);
-      animation: slideUp 0.6s var(--ease) backwards;
-    }
-
-    .card:nth-child(1) { animation-delay: 100ms; }
-    .card:nth-child(2) { animation-delay: 150ms; }
-    .card:nth-child(3) { animation-delay: 200ms; }
-    .card:nth-child(4) { animation-delay: 250ms; }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 8px 24px rgba(43, 109, 74, 0.12);
-      transform: translateY(-6px);
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .card-badge {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      padding: 3px 10px;
-      border-radius: 14px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* Timeline */
-    .timeline {
-      border-left: 2px solid var(--border);
-      padding-left: 24px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 32px;
-      animation: slideUp 0.6s var(--ease) backwards;
-    }
-
-    .timeline-item:nth-child(1) { animation-delay: 100ms; }
-    .timeline-item:nth-child(2) { animation-delay: 150ms; }
-    .timeline-item:nth-child(3) { animation-delay: 200ms; }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: var(--primary);
-      border-radius: 50%;
-      left: -31px;
-      top: 4px;
-      border: 3px solid #FAF9F6;
-      transition: all 300ms var(--ease);
-    }
-
-    .timeline-item:hover::before {
-      transform: scale(1.4);
-      background: var(--primary);
-    }
-
-    .timeline-date {
-      font-size: 0.85rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .timeline-title {
-      font-size: 1.05rem;
-      color: var(--text-primary);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .timeline-desc {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .panel-content {
-        grid-template-columns: 1fr;
-      }
-      .sidebar {
-        width: 240px;
-      }
-      .main-content {
-        margin-left: 240px;
-        padding: 32px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        padding: 16px;
-        overflow-x: auto;
-        z-index: 200;
-      }
-      .sidebar-header {
-        margin-bottom: 16px;
-      }
-      .nav-list {
-        display: flex;
-        gap: 8px;
-        overflow-x: auto;
-      }
-      .nav-item {
-        margin-bottom: 0;
-        flex-shrink: 0;
-      }
-      .main-content {
-        margin-left: 0;
-        margin-top: 140px;
-        padding: 24px;
-      }
-      .panel-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar -->
+
+  <div class="app-layout">
+    <!-- Left Sidebar (Fixed) -->
     <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1>Tahrim K.</h1>
-        <p>Plant Biology Researcher</p>
+      <div class="sidebar-top">
+        <div class="profile-container">
+          <img src="1000440301.jpg" alt="Md Tahrim Kobir Riyad" class="profile-img">
+        </div>
+        <a href="#about" class="nav-brand">
+          <h1><strong>Tahrim K.</strong> Riyad</h1>
+        </a>
+        <p class="sidebar-subtitle">B.Sc. Agriculture (Hons.) & Research Assistant</p>
+        <p class="sidebar-uni">Sylhet Agricultural University</p>
       </div>
-      <ul class="nav-list">
-        <li class="nav-item"><button class="nav-btn active" data-panel="hero">Overview</button></li>
-        <li class="nav-item"><button class="nav-btn" data-panel="research">Research</button></li>
-        <li class="nav-item"><button class="nav-btn" data-panel="education">Education</button></li>
-        <li class="nav-item"><button class="nav-btn" data-panel="skills">Skills</button></li>
-        <li class="nav-item"><button class="nav-btn" data-panel="publications">Publications</button></li>
-        <li class="nav-item"><button class="nav-btn" data-panel="affiliations">Affiliations</button></li>
-        <li class="nav-item"><button class="nav-btn" data-panel="contact">Contact</button></li>
-      </ul>
+
+      <nav class="sidebar-nav">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" aria-current="page">About Me</a></li>
+          <li><a href="#research">Research Focus</a></li>
+          <li><a href="#lab-work">Lab Working Time</a></li>
+          <li><a href="#tours">Academic Tours</a></li>
+          <li><a href="#conferences">Scholarly Output</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills & Tools</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="social-links">
+          <a href="mailto:tahrim.ag@student.sau.ac.bd" aria-label="Email"><img src="gmail.png" alt="Email" class="icon-img"></a>
+          <a href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="linkedin.png" alt="LinkedIn" class="icon-img"></a>
+        </div>
+        <p class="copyright">© 2026 Tahrim K. Riyad</p>
+      </div>
+      
+      <!-- Mobile Toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </aside>
 
-    <!-- Main Content -->
+    <!-- Right Main Content (Scrollable) -->
     <main class="main-content">
-      <!-- Hero Panel -->
-      <section class="panel active" id="hero-panel" data-panel="hero">
-        <div class="panel-header">
-          <h2>Md Tahrim Kobir <em style="color: var(--primary); font-style: italic;">Riyad</em></h2>
-          <p class="panel-subtitle">B.Sc. Agriculture (Hons.) Student &amp; Research Assistant at Sylhet Agricultural University</p>
+      
+      <!-- About / Hero -->
+      <section id="about" class="section">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Introduction</span>
+          <h2 data-split>Integrating Physiology & Genomics</h2>
         </div>
-        <div class="panel-content">
-          <div class="content-text">
-            <h3>About</h3>
-            <p>Interdisciplinary Plant Science researcher integrating experimental physiology and computational genomics to understand plant resilience to abiotic stress.</p>
-            <p>Specializing in genome-wide gene family characterization, enzymatic kinetics, and structural bioinformatic modeling to advance functional plant science.</p>
-            <p style="margin-top: 24px;"><strong>Key Interests:</strong></p>
-            <div style="margin-top: 12px;">
-              <span class="tag">Plant Stress Physiology</span>
-              <span class="tag">Molecular Biology</span>
-              <span class="tag">Bioinformatics</span>
-              <span class="tag">Genomics</span>
-            </div>
+        <div class="prose" data-reveal>
+          <p class="bio lead">Interdisciplinary Plant Science researcher integrating experimental physiology and computational genomics to gain insight into plant resilience to abiotic stress.</p>
+          <p class="bio">Currently serving as a Research Assistant at Sylhet Agricultural University, focusing on functional genomics, enzymatic kinetics, and structural bioinformatic modeling to secure the future of global agriculture.</p>
+        </div>
+        
+        <div class="stats-row" data-reveal>
+          <div class="stat"><span class="stat-num" data-count="16">0</span><span class="stat-label">Certifications</span></div>
+          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">Active Memberships</span></div>
+          <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label">Conference Presentation</span></div>
+        </div>
+      </section>
+
+      <!-- Research -->
+      <section id="research" class="section section-alt">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Focus Areas</span>
+          <h2 data-split>Research Interests</h2>
+        </div>
+        <div class="cards-grid">
+          <div class="card" data-reveal>
+            <div class="card-icon">🌱</div>
+            <h3>Plant Stress Physiology</h3>
+            <p>Designing and conducting seed germination and abiotic stress resilience experiments.</p>
           </div>
-          <div>
-            <h3>Research Highlights</h3>
-            <div style="margin-top: 16px;">
-              <div class="photo-placeholder" onclick="alert('Add your profile photo here')">
-                <div>
-                  <strong>📸</strong><br>Profile Photo<br><small>(Click to add)</small>
-                </div>
-              </div>
-            </div>
+          <div class="card" data-reveal style="transition-delay: 100ms;">
+            <div class="card-icon">🧬</div>
+            <h3>Molecular Biology</h3>
+            <p>DNA extraction and biochemical assays for antioxidant enzymes and stress markers.</p>
+          </div>
+          <div class="card" data-reveal style="transition-delay: 200ms;">
+            <div class="card-icon">💻</div>
+            <h3>Bioinformatics & Genomics</h3>
+            <p>Genome-wide identification, gene expression profiling, and structural predictions.</p>
           </div>
         </div>
       </section>
 
-      <!-- Research Panel -->
-      <section class="panel" id="research-panel" data-panel="research">
-        <div class="panel-header">
-          <h2>Research</h2>
-          <p class="panel-subtitle">Genome-wide characterization and functional annotation studies</p>
+      <!-- NEW: Lab Working Time -->
+      <section id="lab-work" class="section">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Behind the Scenes</span>
+          <h2 data-split>Lab Research Working Time</h2>
+          <p class="section-subtext">Hands-on experience with molecular and biochemical techniques.</p>
         </div>
-        <div class="panel-content">
-          <div class="content-text">
-            <h3>Active Projects</h3>
-            <div class="cards-grid">
-              <div class="card">
-                <div class="card-badge">Ongoing</div>
-                <h3>EIN3/EIL Gene Family</h3>
-                <p>Genome-wide characterization and expression profiling of ethylene-signaling transcription factors in Arabidopsis thaliana.</p>
-              </div>
-              <div class="card">
-                <div class="card-badge">Ongoing</div>
-                <h3>YABBY Gene Family</h3>
-                <p>Identification and characterization of plant-specific abaxial-polarity transcription factors across plant species.</p>
-              </div>
-              <div class="card">
-                <div class="card-badge">Completed</div>
-                <h3>Brassica Physiology</h3>
-                <p>Factorial experiment investigating ascorbic acid × salinity effects with R-based statistical analysis.</p>
-              </div>
-              <div class="card">
-                <div class="card-badge">Thesis</div>
-                <h3>Naaf Estuary Model</h3>
-                <p>Stochastic red-noise temperature framework integrated into Lagrangian chlorophyll-a modeling.</p>
-              </div>
-            </div>
+        <div class="gallery-grid">
+          <!-- Add your real images here later -->
+          <div class="gallery-item card" data-reveal><div class="img-placeholder">Lab Photo 1</div></div>
+          <div class="gallery-item card" data-reveal style="transition-delay: 100ms;"><div class="img-placeholder">Lab Photo 2</div></div>
+          <div class="gallery-item card" data-reveal style="transition-delay: 200ms;"><div class="img-placeholder">Lab Photo 3</div></div>
+          <div class="gallery-item card" data-reveal style="transition-delay: 300ms;"><div class="img-placeholder">Lab Photo 4</div></div>
+        </div>
+      </section>
+
+      <!-- NEW: Academic Tours -->
+      <section id="tours" class="section section-alt">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Field Experience</span>
+          <h2 data-split>Academic Tours</h2>
+          <p class="section-subtext">Exploring agricultural ecosystems and research facilities.</p>
+        </div>
+        <div class="gallery-grid">
+          <!-- Add your real images here later -->
+          <div class="gallery-item card" data-reveal><div class="img-placeholder">Tour Photo 1</div></div>
+          <div class="gallery-item card" data-reveal style="transition-delay: 100ms;"><div class="img-placeholder">Tour Photo 2</div></div>
+          <div class="gallery-item card" data-reveal style="transition-delay: 200ms;"><div class="img-placeholder">Tour Photo 3</div></div>
+        </div>
+      </section>
+
+      <!-- Conferences & Certifications -->
+      <section id="conferences" class="section">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Scholarly Output</span>
+          <h2 data-split>Conferences & Certifications</h2>
+        </div>
+
+        <div class="card highlight-card" data-reveal>
+          <span class="status-tag">• ORAL PRESENTATION · 2026</span>
+          <h3>Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels</h3>
+          <p class="pub-authors"><strong>Md Tahrim Kobir Riyad</strong></p>
+          <p class="pub-venue">International Antalya Scientific Research and Innovative Studies Congress-X, Antalya, Türkiye</p>
+          <a href="#" class="view-link">View Certificate →</a>
+        </div>
+
+        <div class="cert-groups">
+          <div class="cert-group" data-reveal>
+            <h4>Bioinformatics & Genomics</h4>
+            <ul class="cert-list">
+              <li><a href="#"><span class="cert-name">Plant Bioinformatics Methods</span><span class="cert-org">University of Toronto</span></a></li>
+              <li><a href="#"><span class="cert-name">Bioinformatics: Introduction</span><span class="cert-org">Peking University</span></a></li>
+              <li><a href="#"><span class="cert-name">Epigenetic Control of Gene Expression</span><span class="cert-org">University of Melbourne</span></a></li>
+            </ul>
           </div>
-          <div>
-            <h3>Research Photos</h3>
-            <div class="gallery">
-              <div class="photo-placeholder" onclick="alert('Add lab photo 1')">
-                <div>
-                  <strong>🔬</strong><br>Lab Work<br><small>(Click to add)</small>
-                </div>
-              </div>
-              <div class="photo-placeholder" onclick="alert('Add field photo')">
-                <div>
-                  <strong>🌾</strong><br>Field Study<br><small>(Click to add)</small>
-                </div>
-              </div>
-              <div class="photo-placeholder" onclick="alert('Add equipment photo')">
-                <div>
-                  <strong>📊</strong><br>Analysis<br><small>(Click to add)</small>
-                </div>
-              </div>
-              <div class="photo-placeholder" onclick="alert('Add conference photo')">
-                <div>
-                  <strong>🎤</strong><br>Conference<br><small>(Click to add)</small>
-                </div>
-              </div>
-            </div>
+          <div class="cert-group" data-reveal style="transition-delay: 100ms;">
+            <h4>Plant Science & Agriculture</h4>
+            <ul class="cert-list">
+              <li><a href="#"><span class="cert-name">Understanding Plants – Part I</span><span class="cert-org">Tel Aviv University</span></a></li>
+              <li><a href="#"><span class="cert-name">Sustainable Agricultural Land Management</span><span class="cert-org">University of Florida</span></a></li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <!-- Education Panel -->
-      <section class="panel" id="education-panel" data-panel="education">
-        <div class="panel-header">
-          <h2>Education &amp; Experience</h2>
-          <p class="panel-subtitle">Academic path and professional development</p>
+      <!-- Education & Experience -->
+      <section id="education" class="section section-alt">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Academic Path</span>
+          <h2 data-split>Education & Experience</h2>
         </div>
-        <div class="panel-content">
-          <div>
-            <h3>Timeline</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">May 2026 – Present</div>
-                <div class="timeline-title">Research Assistant, Genetics Lab</div>
-                <div class="timeline-desc">Gene family analysis and functional annotation using NCBI, TAIR, Phytozome, and AlphaFold.</div>
+        <div class="timeline-container">
+          <div class="card timeline-card" data-reveal>
+            <div class="timeline-header">
+              <img src="favicon1.png" alt="SAU" class="edu-icon-small">
+              <div class="timeline-title-group">
+                <h3>Research Assistant, Genetics Lab</h3>
+                <p class="timeline-sub">Sylhet Agricultural University</p>
               </div>
-              <div class="timeline-item">
-                <div class="timeline-date">Feb 2025 – Present</div>
-                <div class="timeline-title">Research Assistant, Agronomy Lab</div>
-                <div class="timeline-desc">Molecular and biochemical techniques, instrument operation, and stress physiology experiments.</div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">Oct 2023 – Present</div>
-                <div class="timeline-title">B.Sc. Agriculture (Hons.)</div>
-                <div class="timeline-desc">Plant physiology, crop science, genetics &amp; plant breeding, agricultural statistics.</div>
-              </div>
+              <span class="timeline-date-badge">May 2026 – Present</span>
             </div>
+            <p class="timeline-desc">Conducting gene family analysis and functional annotation using NCBI, TAIR, Phytozome, and AlphaFold.</p>
           </div>
-          <div>
-            <h3>Academic Tour</h3>
-            <div class="gallery">
-              <div class="photo-placeholder" onclick="alert('Add campus photo 1')">
-                <div>
-                  <strong>🏛️</strong><br>Campus<br><small>(Click to add)</small>
-                </div>
+
+          <div class="card timeline-card" data-reveal>
+            <div class="timeline-header">
+              <img src="favicon1.png" alt="SAU" class="edu-icon-small">
+              <div class="timeline-title-group">
+                <h3>Research Assistant, Agronomy Lab</h3>
+                <p class="timeline-sub">Sylhet Agricultural University</p>
               </div>
-              <div class="photo-placeholder" onclick="alert('Add campus photo 2')">
-                <div>
-                  <strong>📚</strong><br>Library/Labs<br><small>(Click to add)</small>
-                </div>
-              </div>
+              <span class="timeline-date-badge">Feb 2025 – Present</span>
             </div>
+            <p class="timeline-desc">Running molecular and biochemical techniques, instrument operation, and stress physiology experiments.</p>
+          </div>
+
+          <div class="card timeline-card" data-reveal>
+            <div class="timeline-header">
+              <img src="favicon1.png" alt="SAU" class="edu-icon-small">
+              <div class="timeline-title-group">
+                <h3>B.Sc. in Agriculture (Hons.)</h3>
+                <p class="timeline-sub">Sylhet Agricultural University</p>
+              </div>
+              <span class="timeline-date-badge">Oct 2023 – Present</span>
+            </div>
+            <p class="timeline-desc">Studying plant physiology, crop science, genetics & plant breeding, and agricultural statistics.</p>
           </div>
         </div>
       </section>
 
-      <!-- Skills Panel -->
-      <section class="panel" id="skills-panel" data-panel="skills">
-        <div class="panel-header">
-          <h2>Skills &amp; Tools</h2>
-          <p class="panel-subtitle">Technical expertise and competencies</p>
+      <!-- Skills -->
+      <section id="skills" class="section">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Expertise</span>
+          <h2 data-split>Skills & Tools</h2>
         </div>
-        <div class="panel-content">
-          <div class="content-text">
-            <h3>Laboratory &amp; Analytical</h3>
-            <div style="margin-top: 12px;">
+        <div class="skills-grid">
+          <div class="card skill-group" data-reveal>
+            <h3>Laboratory & Analytical</h3>
+            <div class="tags">
               <span class="tag">DNA extraction</span>
               <span class="tag">UV–Vis spectrophotometry</span>
               <span class="tag">Biochemical assays</span>
               <span class="tag">Seed germination</span>
             </div>
-            <h3>Bioinformatics &amp; Computing</h3>
-            <div style="margin-top: 12px;">
-              <span class="tag">R &amp; Python</span>
+          </div>
+          <div class="card skill-group" data-reveal style="transition-delay: 150ms;">
+            <h3>Bioinformatics & Computing</h3>
+            <div class="tags">
+              <span class="tag">R & Python</span>
               <span class="tag">NCBI / BLAST</span>
               <span class="tag">MEGA / PhyloSuite</span>
               <span class="tag">TBtools / MEME</span>
               <span class="tag">AlphaFold</span>
             </div>
-            <h3>Soft Skills</h3>
-            <div style="margin-top: 12px;">
-              <span class="tag">Research Design</span>
-              <span class="tag">Data Analysis</span>
-              <span class="tag">Scientific Writing</span>
-              <span class="tag">Collaboration</span>
-            </div>
-          </div>
-          <div>
-            <h3>Certifications</h3>
-            <div class="cards-grid">
-              <div class="card">
-                <h3 style="font-size: 0.95rem; margin-bottom: 8px;">Bioinformatics Specialization</h3>
-                <p style="font-size: 0.85rem;">University of Toronto & Peking University</p>
-              </div>
-              <div class="card">
-                <h3 style="font-size: 0.95rem; margin-bottom: 8px;">Data Analysis with R</h3>
-                <p style="font-size: 0.85rem;">Duke University Specialization</p>
-              </div>
-              <div class="card">
-                <h3 style="font-size: 0.95rem; margin-bottom: 8px;">Python for Genomics</h3>
-                <p style="font-size: 0.85rem;">Johns Hopkins University</p>
-              </div>
-              <div class="card">
-                <h3 style="font-size: 0.95rem; margin-bottom: 8px;">ML in Python</h3>
-                <p style="font-size: 0.85rem;">University of Michigan</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- Publications Panel -->
-      <section class="panel" id="publications-panel" data-panel="publications">
-        <div class="panel-header">
-          <h2>Publications &amp; Presentations</h2>
-          <p class="panel-subtitle">Scholarly output and conference presentations</p>
+      <!-- Contact -->
+      <section id="contact" class="section section-alt">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Get in touch</span>
+          <h2 data-split>Collaborate</h2>
+          <p class="section-subtext">Open to research collaborations and academic discussions.</p>
         </div>
-        <div class="panel-content">
-          <div class="content-text">
-            <h3>Conference Presentations</h3>
-            <div class="cards-grid">
-              <div class="card">
-                <div class="card-badge">• 2026</div>
-                <h3>Nano Zinc Seed Priming</h3>
-                <p><strong>Oral Presentation</strong> at International Antalya Scientific Research Congress-X, Türkiye.</p>
-                <p style="font-size: 0.85rem; margin-top: 12px;"><em>Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels</em></p>
+        <div class="contact-grid">
+          <div class="card contact-card" data-reveal>
+            <a class="contact-row" href="mailto:tahrim.ag@student.sau.ac.bd">
+              <img src="gmail.png" alt="Email" class="icon-img">
+              <div class="contact-info">
+                <span class="contact-label">EMAIL</span>
+                <span class="contact-value">tahrim.ag@student.sau.ac.bd</span>
               </div>
-            </div>
+            </a>
           </div>
-          <div>
-            <h3>Future Presentations</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Space for upcoming conference photos and presentations.</p>
-            <div class="gallery">
-              <div class="photo-placeholder" onclick="alert('Add conference photo 1')">
-                <div>
-                  <strong>🎤</strong><br>Presentation<br><small>(Click to add)</small>
-                </div>
+          <div class="card contact-card" data-reveal style="transition-delay: 100ms;">
+            <a class="contact-row" href="tel:+8801305581682">
+              <div class="contact-icon">📞</div>
+              <div class="contact-info">
+                <span class="contact-label">PHONE</span>
+                <span class="contact-value">+880 1305 581682</span>
               </div>
-              <div class="photo-placeholder" onclick="alert('Add conference photo 2')">
-                <div>
-                  <strong>📸</strong><br>With Attendees<br><small>(Click to add)</small>
-                </div>
+            </a>
+          </div>
+          <div class="card contact-card" data-reveal style="transition-delay: 200ms;">
+            <a class="contact-row" href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank">
+              <img src="linkedin.png" alt="LinkedIn" class="icon-img">
+              <div class="contact-info">
+                <span class="contact-label">LINKEDIN</span>
+                <span class="contact-value">Md Tahrim Kobir Riyad</span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
-
-      <!-- Affiliations Panel -->
-      <section class="panel" id="affiliations-panel" data-panel="affiliations">
-        <div class="panel-header">
-          <h2>Professional Affiliations</h2>
-          <p class="panel-subtitle">Active memberships in global organizations</p>
-        </div>
-        <div class="cards-grid">
-          <div class="card">
-            <h3>American Society of Plant Biologists</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 12px;">Professional society dedicated to promoting plant biology and molecular genetics worldwide.</p>
-            <span class="tag">Active Member</span>
-          </div>
-          <div class="card">
-            <h3>American Phytopathological Society</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 12px;">International scientific organization focused on plant health and crop protection research.</p>
-            <span class="tag">Active Member</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Panel -->
-      <section class="panel" id="contact-panel" data-panel="contact">
-        <div class="panel-header">
-          <h2>Get in Touch</h2>
-          <p class="panel-subtitle">Open to collaborations and opportunities</p>
-        </div>
-        <div class="cards-grid">
-          <div class="card">
-            <h3 style="font-size: 0.95rem; margin-bottom: 8px;">📧 Email</h3>
-            <p style="word-break: break-all;">tahrim.ag@student.sau.ac.bd</p>
-          </div>
-          <div class="card">
-            <h3 style="font-size: 0.95rem; margin-bottom: 8px;">📱 Phone</h3>
-            <p>+880 1305 581682</p>
-          </div>
-          <div class="card">
-            <h3 style="font-size: 0.95rem; margin-bottom: 8px;">💼 LinkedIn</h3>
-            <p><a href="https://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">Md Tahrim Kobir Riyad</a></p>
-          </div>
-          <div class="card">
-            <h3 style="font-size: 0.95rem; margin-bottom: 8px;">🏛️ Affiliation</h3>
-            <p>Sylhet Agricultural University, Bangladesh</p>
-          </div>
-        </div>
-      </section>
+      
     </main>
   </div>
 
-  <script>
-    // Panel switching
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const panelName = btn.dataset.panel;
-        
-        // Update active nav button
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        // Update active panel
-        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-        document.querySelector(`[data-panel="${panelName}"]`).classList.add('active');
-        
-        // Scroll to top smoothly
-        document.querySelector('.main-content').scrollTop = 0;
-      });
-    });
-
-    // Light stagger animation on cards
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(16px)';
-      card.style.transition = 'opacity 0.6s var(--ease) 0.1s, transform 0.6s var(--ease) 0.1s';
-      observer.observe(card);
-    });
-  </script>
+  <script src="motion.js" defer></script>
 </body>
 </html>
