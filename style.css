@@ -244,9 +244,10 @@ html:not(.js) .eyebrow::after { transform: scaleX(1); }
   font-weight: 600;
   color: var(--text-heading);
   transition: color var(--t-fast) var(--ease);
+  white-space: nowrap; /* Forces the name to stay on one line */
 }
 .nav-brand:hover { color: var(--primary-green); }
-.nav-brand em { font-style: italic; color: var(--primary-green); }
+.nav-brand em { font-style: normal; color: var(--primary-green); } /* Makes Riyad dark green and removes default italics */
 
 .nav-links { display: flex; align-items: center; gap: 6px; position: relative; }
 .nav-links a {
