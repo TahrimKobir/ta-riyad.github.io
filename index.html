@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ========================================== -->
+  <!-- 00. HEAD & META DATA                       -->
+  <!-- ========================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Tahrim Kobir Riyad — Portfolio</title>
   <meta name="description" content="Portfolio of Md Tahrim Kobir Riyad, B.Sc. Agriculture (Hons.) student and research assistant at Sylhet Agricultural University.">
   <link rel="icon" type="image/png" href="favicon1.png">
+  
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
+  <!-- Inline Styles (Carousel) -->
   <style>
     /* Carousel Styles */
     .carousel-container {
@@ -69,7 +75,9 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- ========================================== -->
+  <!-- 01. NAVIGATION BAR                         -->
+  <!-- ========================================== -->
   <nav class="navbar">
     <div class="nav-container"><a href="#hero" class="nav-brand"><strong>Tahrim K.</strong> <strong>Riyad</strong></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -88,7 +96,9 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- ========================================== -->
+  <!-- 02. HERO / ABOUT SECTION                   -->
+  <!-- ========================================== -->
   <section id="hero" class="hero-section">
     <div class="container hero-grid">
       <div class="hero-text">
@@ -108,7 +118,9 @@
     </div>
   </section>
 
-  <!-- Research -->
+  <!-- ========================================== -->
+  <!-- 03. RESEARCH INTERESTS                     -->
+  <!-- ========================================== -->
   <section id="research" class="section">
     <div class="container">
       <div class="section-header">
@@ -136,7 +148,9 @@
     </div>
   </section>
 
-  <!-- Conferences & Certifications -->
+  <!-- ========================================== -->
+  <!-- 04. CONFERENCES & CERTIFICATIONS           -->
+  <!-- ========================================== -->
   <section id="conferences" class="section section-alt">
     <div class="container">
       <div class="section-header">
@@ -144,7 +158,7 @@
         <h2>Conferences &amp; Certifications</h2>
       </div>
 
-      <!-- Conference Presentation -->
+      <!-- 4A. Conference Presentation -->
       <div class="card highlight-card">
         <span class="status-tag">• ORAL PRESENTATION · 2026</span>
         <h3>Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels</h3>
@@ -155,8 +169,10 @@
         </div>
       </div>
 
-<!-- Categorized Certifications -->
+      <!-- 4B. Categorized Certifications -->
       <div class="cert-groups">
+        
+        <!-- Category: Bioinformatics & Genomics -->
         <div class="cert-group">
           <h4>Bioinformatics &amp; Genomics</h4>
           <ul class="cert-list">
@@ -196,10 +212,10 @@
                 </div>
               </a>
             </li>
-            <li>
           </ul>
         </div>
 
+        <!-- Category: Plant Science & Agriculture -->
         <div class="cert-group">
           <h4>Plant Science &amp; Agriculture</h4>
           <ul class="cert-list">
@@ -221,9 +237,8 @@
                 </div>
               </a>
             </li>
-          </li>
-          <li>
-           <a href="https://www.coursera.org/account/accomplishments/verify/YIW4VE21AW97" target="_blank" rel="noopener noreferrer">
+            <li>
+             <a href="https://www.coursera.org/account/accomplishments/verify/YIW4VE21AW97" target="_blank" rel="noopener noreferrer">
                 <img src="tel aviv.png" alt="Tel Aviv University" class="edu-icon-small">
                 <div class="cert-title-group">
                   <span class="cert-name">Understanding Plants – Part I</span>
@@ -252,7 +267,7 @@
           </ul>
         </div>
 
-      
+        <!-- Category: Data Science & Programming -->
         <div class="cert-group">
           <h4>Data Science &amp; Programming</h4>
           <ul class="cert-list">
@@ -285,9 +300,12 @@
             </li>
           </ul>
         </div>
-    </div>
+      </div>
+  </section>
 
-  <!-- Education & Experience -->
+  <!-- ========================================== -->
+  <!-- 05. EDUCATION & EXPERIENCE                 -->
+  <!-- ========================================== -->
   <section id="education" class="section">
     <div class="container">
       <div class="section-header">
@@ -296,7 +314,7 @@
       </div>
       <div class="timeline-container">
 
-        <!-- Card 1 -->
+        <!-- Experience Card 1 -->
         <div class="card timeline-card">
           <div class="timeline-header">
             <img src="favicon1.png" alt="Sylhet Agricultural University" class="edu-icon-small">
@@ -309,7 +327,7 @@
           <p class="timeline-desc">Conducting gene family analysis and functional annotation using NCBI, TAIR, Phytozome, and AlphaFold.</p>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Experience Card 2 -->
         <div class="card timeline-card">
           <div class="timeline-header">
             <img src="favicon1.png" alt="Sylhet Agricultural University" class="edu-icon-small">
@@ -322,7 +340,7 @@
           <p class="timeline-desc">Running molecular and biochemical techniques, instrument operation, and stress physiology experiments.</p>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Education Card 3 -->
         <div class="card timeline-card">
           <div class="timeline-header">
             <img src="favicon1.png" alt="Sylhet Agricultural University" class="edu-icon-small">
@@ -339,90 +357,88 @@
     </div>
   </section>
 
-<!-- Photo Section 
-<!-- Photo Gallery / Carousel -->
-<section id="gallery" class="section section-alt">
-  <div class="container">
-
-    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
-      <span class="eyebrow" style="color: #00f3ff; font-family: monospace; letter-spacing: 2px;">[ IN ACTION ]</span>
-      <h2 style="text-transform: uppercase; letter-spacing: 1px;">Field &amp; Laboratory Work</h2>
-    </div>
-
-    <div class="carousel-container" style="position: relative;">
-
-      <!-- Prev Button -->
-      <button class="carousel-btn prev-btn" aria-label="Previous image" style="position: absolute; left: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10094;</button>
-
-      <div class="carousel-track">
-
-        <!-- SLIDE 1 -->
-        <div class="carousel-slide">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="rice.png" alt="Rice project data collection" loading="lazy">
-          </div>
-          <div class="carousel-caption">Collecting agronomic data for the rice research project</div>
-        </div>
-
-        <!-- SLIDE 2 -->
-        <div class="carousel-slide">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
-          </div>
-          <div class="carousel-caption">Preparing biochemical assays by adding buffer solution</div>
-        </div>
-
-        <!-- SLIDE 3 -->
-        <div class="carousel-slide">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
-          </div>
-          <div class="carousel-caption">Grinding plant tissue samples with liquid nitrogen for molecular analysis</div>
-        </div>
-          
-        <!-- SLIDE 4 -->
-        <div class="carousel-slide">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
-          </div>
-          <div class="carousel-caption">Centrifuging plant samples for enzyme extraction</div>
-        </div>
-
-        <!-- SLIDE 5 -->
-        <div class="carousel-slide">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
-          </div>
-          <div class="carousel-caption">Recording physiological growth data from chili plants</div>
-        </div>
-
-        <!-- SLIDE 6 (Reference image_53dc19.jpg) -->
-        <div class="carousel-slide">
-          <div class="image-wrapper" onclick="openModal(this)">
-            <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
-          </div>
-          <div class="carousel-caption">Measuring non-destructive chlorophyll content on chili leaves</div>
-        </div>
-
+  <!-- ========================================== -->
+  <!-- 06. PHOTO GALLERY (CAROUSEL)               -->
+  <!-- ========================================== -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+        <span class="eyebrow" style="color: #00f3ff; font-family: monospace; letter-spacing: 2px;">[ IN ACTION ]</span>
+        <h2 style="text-transform: uppercase; letter-spacing: 1px;">Field &amp; Laboratory Work</h2>
       </div>
 
-      <!-- Next Button -->
-      <button class="carousel-btn next-btn" aria-label="Next image" style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10095;</button>
+      <div class="carousel-container" style="position: relative;">
+        <!-- Prev Button -->
+        <button class="carousel-btn prev-btn" aria-label="Previous image" style="position: absolute; left: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10094;</button>
 
+        <div class="carousel-track">
+          <!-- Gallery Slide 1 -->
+          <div class="carousel-slide">
+            <div class="image-wrapper" onclick="openModal(this)">
+              <img src="rice.png" alt="Rice project data collection" loading="lazy">
+            </div>
+            <div class="carousel-caption">Collecting agronomic data for the rice research project</div>
+          </div>
+
+          <!-- Gallery Slide 2 -->
+          <div class="carousel-slide">
+            <div class="image-wrapper" onclick="openModal(this)">
+              <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
+            </div>
+            <div class="carousel-caption">Preparing biochemical assays by adding buffer solution</div>
+          </div>
+
+          <!-- Gallery Slide 3 -->
+          <div class="carousel-slide">
+            <div class="image-wrapper" onclick="openModal(this)">
+              <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
+            </div>
+            <div class="carousel-caption">Grinding plant tissue samples with liquid nitrogen for molecular analysis</div>
+          </div>
+            
+          <!-- Gallery Slide 4 -->
+          <div class="carousel-slide">
+            <div class="image-wrapper" onclick="openModal(this)">
+              <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
+            </div>
+            <div class="carousel-caption">Centrifuging plant samples for enzyme extraction</div>
+          </div>
+
+          <!-- Gallery Slide 5 -->
+          <div class="carousel-slide">
+            <div class="image-wrapper" onclick="openModal(this)">
+              <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
+            </div>
+            <div class="carousel-caption">Recording physiological growth data from chili plants</div>
+          </div>
+
+          <!-- Gallery Slide 6 -->
+          <div class="carousel-slide">
+            <div class="image-wrapper" onclick="openModal(this)">
+              <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
+            </div>
+            <div class="carousel-caption">Measuring non-destructive chlorophyll content on chili leaves</div>
+          </div>
+        </div>
+
+        <!-- Next Button -->
+        <button class="carousel-btn next-btn" aria-label="Next image" style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10095;</button>
+      </div>
     </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 07. LIGHTBOX MODAL                         -->
+  <!-- ========================================== -->
+  <div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="full-image">
+    <div id="modal-caption-text"></div>
   </div>
-</section>
 
-<!-- LIGHTBOX MODAL (Place this right before your closing </body> tag) -->
-<div id="image-modal" class="modal">
-  <span class="close-modal">&times;</span>
-  <img class="modal-content" id="full-image">
-  <div id="modal-caption-text"></div>
-</div>
-
-
-      
-      <!-- Skills -->
+  <!-- ========================================== -->
+  <!-- 08. SKILLS & TOOLS                         -->
+  <!-- ========================================== -->
   <section id="skills" class="section">
     <div class="container">
       <div class="section-header">
@@ -453,7 +469,9 @@
     </div>
   </section>
 
-  <!-- Professional Affiliations -->
+  <!-- ========================================== -->
+  <!-- 09. PROFESSIONAL AFFILIATIONS              -->
+  <!-- ========================================== -->
   <section id="affiliations" class="section section-alt">
     <div class="container">
       <div class="section-header">
@@ -498,7 +516,9 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- ========================================== -->
+  <!-- 10. CONTACT SECTION                        -->
+  <!-- ========================================== -->
   <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
@@ -549,7 +569,9 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ========================================== -->
+  <!-- 11. FOOTER                                 -->
+  <!-- ========================================== -->
   <footer>
     <div class="container footer-content">
       <p>© 2026 <strong>Md Tahrim Kobir Riyad</strong> · tahrim.ag@student.sau.ac.bd</p>
@@ -563,6 +585,9 @@
     </div>
   </footer>
 
+  <!-- ========================================== -->
+  <!-- 12. JAVASCRIPT / FUNCTIONALITY             -->
+  <!-- ========================================== -->
   <script>
     // Navigation toggle logic
     const navToggle = document.getElementById('navToggle');
