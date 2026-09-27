@@ -751,35 +751,24 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   flex-wrap: wrap;
 }
 
-/* Icon & Title Alignment */
+/* Logo & Title Alignment */
 .timeline-title-wrapper {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.icon-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: #f8fcf9;
-  border: 1px solid rgba(43, 109, 74, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  transition: transform 0.3s ease;
-}
-
-.premium-timeline-card:hover .icon-box {
-  transform: scale(1.05) rotate(-2deg);
-  border-color: rgba(43, 109, 74, 0.3);
-}
-
-.icon-box img {
-  width: 32px;
-  height: 32px;
+/* Standalone Logo Styling (No Box) */
+.timeline-logo {
+  width: 48px;
+  height: 48px;
   object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.premium-timeline-card:hover .timeline-logo {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 4px 6px rgba(43, 109, 74, 0.15));
 }
 
 /* Typography Details */
@@ -845,7 +834,7 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   line-height: 1.6;
   color: #444;
   margin: 0;
-  padding-left: 76px; /* Aligns perfectly with the text above, skipping the icon */
+  padding-left: 68px; /* Aligns perfectly with the text above (48px logo + 20px gap) */
 }
 
 /* Responsive adjustments */
@@ -854,7 +843,6 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   .timeline-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .timeline-desc { padding-left: 0; margin-top: 16px; }
 }
-
 
 
 
