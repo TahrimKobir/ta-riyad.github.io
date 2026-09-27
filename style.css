@@ -685,87 +685,144 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 }
 
 /* =========================================================
-   7. TIMELINE / EDUCATION & EXPERIENCE
-   Left-bordered timeline items with hover states
+   7. TIMELINE / EDUCATION & EXPERIENCE (CONNECTED NODES)
    ========================================================= */
 .timeline-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
   max-width: 800px;
   margin: 0 auto;
+  padding-left: 40px; /* Creates space for the vertical timeline track */
 }
 
+/* The Continuous Vertical Line */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 10px;
+  width: 2px;
+  /* Fades the line out towards the bottom. Ensure variables match your root palette */
+  background: linear-gradient(to bottom, var(--primary-green), rgba(43, 109, 74, 0.1));
+  border-radius: 2px;
+}
+
+/* Base Card Styling */
 .timeline-card {
   position: relative;
-  padding: 24px 32px;
-  border-left: 3px solid var(--border);
-  border-radius: 0 12px 12px 0;
-  transition: transform 450ms var(--ease), background 450ms var(--ease), box-shadow 450ms var(--ease);
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
+
+/* The Interactive Timeline Node (Dot) */
 .timeline-card::before {
   content: '';
   position: absolute;
-  left: -3px; top: 0; bottom: 0;
-  width: 3px;
+  top: 42px; /* Aligns with the center of the institution icon */
+  left: -35px; /* Positions perfectly over the vertical track */
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
   background: var(--primary-green);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 900ms var(--ease-long);
-  transition-delay: calc(var(--i, 0) * 140ms);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 3px var(--primary-green-light);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  z-index: 2;
 }
-.js .timeline-card.is-visible::before { transform: scaleY(1); }
-html:not(.js) .timeline-card::before { transform: scaleY(1); }
 
+/* Hover States for Card and Node */
 .timeline-card:hover {
-  transform: translate3d(8px, 0, 0);
-  background: var(--surface);
-  box-shadow: -6px 0 18px -6px rgba(43, 109, 74, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(43, 109, 74, 0.08);
+  border-color: var(--primary-green-light);
+}
+.timeline-card:hover::before {
+  transform: scale(1.3);
+  background: var(--primary-green);
+  box-shadow: 0 0 0 4px rgba(43, 109, 74, 0.15);
 }
 
+/* Inner Layout Flexbox */
 .timeline-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
+.timeline-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 260px;
+}
+
 .edu-icon-small {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
   background: #ffffff;
   border: 1px solid var(--border);
-  padding: 4px;
+  padding: 6px;
   object-fit: contain;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.timeline-title-group { flex: 1; min-width: 220px; }
 .timeline-title-group h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   margin-bottom: 4px;
-  transition: color var(--t-base) var(--ease);
+  transition: color 0.3s var(--ease);
 }
-.timeline-card:hover .timeline-title-group h3 { color: var(--primary-green); }
+.timeline-card:hover .timeline-title-group h3 {
+  color: var(--primary-green);
+}
 
-.timeline-sub { font-size: 0.9rem; color: var(--text-muted); }
+.timeline-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
 
 .timeline-date-badge {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding: 6px 14px;
+  border-radius: 24px;
   background: var(--primary-green-light);
   color: var(--primary-green);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(43, 109, 74, 0.1);
   white-space: nowrap;
-  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
 }
 
-.timeline-desc { font-size: 0.95rem; line-height: 1.6; margin: 0; }
+/* Aligns the description text with the title, skipping the icon width */
+.timeline-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 64px; 
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 640px) {
+  .timeline-container { padding-left: 24px; gap: 24px; }
+  .timeline-container::before { left: 4px; }
+  .timeline-card::before { left: -25px; top: 40px; }
+  .timeline-header { flex-direction: column; align-items: flex-start; }
+  .timeline-desc { padding-left: 0; margin-top: 12px; }
+}
 
 /* =========================================================
    8. SKILLS
