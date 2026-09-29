@@ -24,11 +24,20 @@ body {
   font-family: 'Inter', sans-serif;
   color: var(--text-main);
   background: var(--bg-color);
+  
+  /* নতুন যোগ করা ব্যাকগ্রাউন্ড গ্লো ইফেক্ট */
+  background-image: 
+    radial-gradient(circle at 10% 20%, #F9FFF7 0%, transparent 40%),
+    radial-gradient(circle at 90% 15%, #F9FFF7 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, #F9FFF7 0%, transparent 45%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
