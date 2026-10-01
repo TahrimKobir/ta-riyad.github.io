@@ -1,29 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-99TFL0CZMN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-99TFL0CZMN');
   </script>
 
+  <!-- ========================================== -->
+  <!-- 00. HEAD & META DATA                       -->
+  <!-- ========================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Tahrim Kobir Riyad — Portfolio</title>
   <meta name="description" content="Portfolio of Md Tahrim Kobir Riyad, B.Sc. Agriculture (Hons.) student and research assistant at Sylhet Agricultural University.">
   <link rel="icon" type="image/png" href="favicon1.png">
   
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  
+  <!-- Inline Styles (Carousel) -->
+  <style>
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      color: #333;
+      border: none;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .carousel-btn:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .prev-btn { left: 15px; }
+    .next-btn { right: 15px; }
+
+    @media (max-width: 768px) {
+      .carousel-slide img { height: 350px; }
+      .carousel-btn { width: 36px; height: 36px; font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- ========================================== -->
+  <!-- 01. NAVIGATION BAR                         -->
+  <!-- ========================================== -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="#hero" class="nav-brand"><strong>Tahrim K. Riyad</strong></a>
@@ -31,7 +95,7 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#hero" aria-current="page">HOME</a></li>
+        <li><a href="#hero">HOME</a></li>
         <li><a href="#research">RESEARCH</a></li>
         <li><a href="#conferences">CONFERENCES</a></li>
         <li><a href="#education">EDUCATION</a></li>
@@ -44,18 +108,20 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section" data-reveal>
+  <!-- ========================================== -->
+  <!-- 02. HERO / ABOUT SECTION                   -->
+  <!-- ========================================== -->
+  <section id="hero" class="hero-section">
     <div class="container hero-grid">
       <div class="hero-text">
         <span class="institution-badge">Sylhet Agricultural University</span>
-        <h1><strong>Md Tahrim Kobir</strong><br><em>Riyad</em></h1>
-        <p class="subtitle">B.Sc. Agriculture (Hons.) Student &amp; Research Assistant</p>
-        <p class="bio">Interdisciplinary Plant Science researcher integrating experimental physiology and computational genomics to gain insight into plant resilience to abiotic stress. As Research Assistant at Sylhet Agricultural University, working in functional genomics, enzymatic kinetics, and structural bioinformatic modeling.</p>
+        <h1><strong>Md Tahrim Kobir</strong><br><em><strong>Riyad</strong></em></h1>
+        <p class="subtitle"> B. Sc. Agriculture (Hons.) Student &amp; Research Assistant</p>
+        <p class="bio">Interdisciplinary Plant Science researcher integrating experimental physiology and computational genomics to gain insight into plant resilience to abiotic stress. Now, as Research Assistant at Sylhet Agricultural University, working in functional genomics, enzymatic kinetics, and structural bioinformatic modeling.</p>
         <div class="stats-row">
-          <div class="stat"><span class="stat-num" data-count="12">0</span><span class="stat-label">CERTIFICATIONS</span></div>
-          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">MEMBERSHIPS</span></div>
-          <div class="stat"><span class="stat-num" data-count="1">0</span><span class="stat-label">CONFERENCE</span></div>
+          <div class="stat"><span class="stat-num">12</span><span class="stat-label">CERTIFICATIONS</span></div>
+          <div class="stat"><span class="stat-num">2</span><span class="stat-label">MEMBERSHIPS</span></div>
+          <div class="stat"><span class="stat-num">1</span><span class="stat-label">CONFERENCE</span></div>
         </div>
       </div>
       <div class="hero-image">
@@ -64,8 +130,10 @@
     </div>
   </section>
 
-  <!-- Research Interests -->
-  <section id="research" class="section" data-reveal>
+  <!-- ========================================== -->
+  <!-- 03. RESEARCH INTERESTS                     -->
+  <!-- ========================================== -->
+  <section id="research" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Focus areas</span>
@@ -73,15 +141,18 @@
         <p class="section-subtext">Exploring plant resilience through integrated approaches</p>
       </div>
       <div class="cards-grid">
-        <div class="card" data-reveal>
+        <div class="card">
+          <div class="card-icon">🌱</div>
           <h3>Plant Stress Physiology</h3>
           <p>Designing and conducting seed germination and abiotic stress resilience experiments.</p>
         </div>
-        <div class="card" data-reveal>
+        <div class="card">
+          <div class="card-icon">🧬</div>
           <h3>Molecular Biology</h3>
           <p>DNA extraction and biochemical assays for antioxidant enzymes and stress markers.</p>
         </div>
-        <div class="card" data-reveal>
+        <div class="card">
+          <div class="card-icon">💻</div>
           <h3>Bioinformatics &amp; Genomics</h3>
           <p>Genome-wide identification, gene expression profiling, and structural predictions.</p>
         </div>
@@ -89,15 +160,18 @@
     </div>
   </section>
 
-  <!-- Conferences & Certifications -->
-  <section id="conferences" class="section section-alt" data-reveal>
+  <!-- ========================================== -->
+  <!-- 04. CONFERENCES & CERTIFICATIONS           -->
+  <!-- ========================================== -->
+  <section id="conferences" class="section section-alt">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Scholarly Output</span>
         <h2>Conferences &amp; Certifications</h2>
       </div>
 
-      <div class="card highlight-card" data-reveal>
+      <!-- 4A. Conference Presentation -->
+      <div class="card highlight-card">
         <span class="status-tag">• ORAL PRESENTATION · 2026</span>
         <h3>Influence of Nano Zinc Seed Priming on Germination of Rice Under Different pH Levels</h3>
         <p class="pub-authors"><strong>Md Tahrim Kobir Riyad</strong></p>
@@ -107,8 +181,11 @@
         </div>
       </div>
 
+      <!-- 4B. Categorized Certifications -->
       <div class="cert-groups">
-        <div class="cert-group" data-reveal>
+        
+        <!-- Category: Bioinformatics & Genomics -->
+        <div class="cert-group">
           <h4>Bioinformatics &amp; Genomics</h4>
           <ul class="cert-list">
             <li>
@@ -138,8 +215,8 @@
                 </div>
               </a>
             </li>
-            <li>
-              <a href="https://coursera.org/verify/0VITF6QO0DKA" target="_blank" rel="noopener noreferrer">
+           <li>
+            <a href="https://coursera.org/verify/0VITF6QO0DKA" target="_blank" rel="noopener noreferrer">
                 <img src="jons hop.png" alt="Johns Hopkins University" class="edu-icon-small">
                 <div class="cert-title-group">
                   <span class="cert-name">Python for Genomic Data Science</span>
@@ -150,7 +227,8 @@
           </ul>
         </div>
 
-        <div class="cert-group" data-reveal>
+        <!-- Category: Plant Science & Agriculture -->
+        <div class="cert-group">
           <h4>Plant Science &amp; Agriculture</h4>
           <ul class="cert-list">
             <li>
@@ -172,7 +250,7 @@
               </a>
             </li>
             <li>
-              <a href="https://www.coursera.org/account/accomplishments/verify/YIW4VE21AW97" target="_blank" rel="noopener noreferrer">
+             <a href="https://www.coursera.org/account/accomplishments/verify/YIW4VE21AW97" target="_blank" rel="noopener noreferrer">
                 <img src="tel aviv.png" alt="Tel Aviv University" class="edu-icon-small">
                 <div class="cert-title-group">
                   <span class="cert-name">Understanding Plants – Part I</span>
@@ -201,7 +279,8 @@
           </ul>
         </div>
 
-        <div class="cert-group" data-reveal>
+        <!-- Category: Data Science & Programming -->
+        <div class="cert-group">
           <h4>Data Science &amp; Programming</h4>
           <ul class="cert-list">
             <li>
@@ -223,10 +302,10 @@
               </a>
             </li>
             <li>
-              <a href="https://www.coursera.org/account/accomplishments/verify/15VKXLRCIYAI" target="_blank" rel="noopener noreferrer">
+             <a href="https://www.coursera.org/account/accomplishments/verify/15VKXLRCIYAI" target="_blank" rel="noopener noreferrer">
                 <img src="IBM.png" alt="IBM" class="edu-icon-small">
                 <div class="cert-title-group">
-                  <span class="cert-name">Python for Data Science, AI &amp; Development</span>
+                  <span class="cert-name">Python for Data Science, AI & Development</span>
                   <span class="cert-org">IBM</span>
                 </div>
               </a>
@@ -234,11 +313,12 @@
           </ul>
         </div>
       </div>
-    </div>
   </section>
 
-  <!-- Education & Experience -->
-  <section id="education" class="section" data-reveal>
+  <!-- ========================================== -->
+  <!-- 05. EDUCATION & EXPERIENCE                 -->
+  <!-- ========================================== -->
+  <section id="education" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Academic Path</span>
@@ -246,7 +326,8 @@
       </div>
       
       <div class="timeline-container">
-        <div class="card premium-timeline-card" data-reveal>
+        <!-- Experience Card 1 (Current) -->
+        <div class="card premium-timeline-card">
           <div class="timeline-content">
             <div class="timeline-header">
               <div class="timeline-title-wrapper">
@@ -264,7 +345,8 @@
           </div>
         </div>
 
-        <div class="card premium-timeline-card" data-reveal>
+        <!-- Experience Card 2 (Current) -->
+        <div class="card premium-timeline-card">
           <div class="timeline-content">
             <div class="timeline-header">
               <div class="timeline-title-wrapper">
@@ -282,7 +364,8 @@
           </div>
         </div>
 
-        <div class="card premium-timeline-card" data-reveal>
+<!-- Education Card 3 -->
+        <div class="card premium-timeline-card">
           <div class="timeline-content">
             <div class="timeline-header">
               <div class="timeline-title-wrapper">
@@ -292,6 +375,7 @@
                   <p class="timeline-sub">Sylhet Agricultural University</p>
                 </div>
               </div>
+              <!-- Added 'active-date' class and the 'pulse-dot' span below -->
               <div class="timeline-date-badge active-date">
                 <span class="pulse-dot"></span> Oct 2023 – Present
               </div>
@@ -299,22 +383,23 @@
             <p class="timeline-desc">Studying plant physiology, crop science, genetics &amp; plant breeding, and agricultural statistics.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Photo Gallery -->
-  <section id="gallery" class="section section-alt" data-reveal>
+  <!-- ========================================== -->
+  <!-- 06. PHOTO GALLERY (CAROUSEL)               -->
+  <!-- ========================================== -->
+  <section id="gallery" class="section section-alt">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">[ IN ACTION ]</span>
-        <h2>Field &amp; Laboratory Work</h2>
+      <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+        <span class="eyebrow" style="color: #00f3ff; font-family: monospace; letter-spacing: 2px;">[ IN ACTION ]</span>
+        <h2 style="text-transform: uppercase; letter-spacing: 1px;">Field &amp; Laboratory Work</h2>
       </div>
 
-      <div class="carousel-container">
-        <button class="carousel-btn prev-btn" aria-label="Previous image">&#10094;</button>
+      <div class="carousel-container" style="position: relative;">
+        <!-- Prev Button -->
+        <button class="carousel-btn prev-btn" aria-label="Previous image" style="position: absolute; left: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10094;</button>
 
         <div class="carousel-track">
+          <!-- Gallery Slide 1 -->
           <div class="carousel-slide">
             <div class="image-wrapper" onclick="openModal(this)">
               <img src="rice.png" alt="Rice project data collection" loading="lazy">
@@ -322,6 +407,7 @@
             <div class="carousel-caption">Collecting agronomic data for the rice research project</div>
           </div>
 
+          <!-- Gallery Slide 2 -->
           <div class="carousel-slide">
             <div class="image-wrapper" onclick="openModal(this)">
               <img src="adding buffer solution.png" alt="Adding buffer solution" loading="lazy">
@@ -329,6 +415,7 @@
             <div class="carousel-caption">Preparing biochemical assays by adding buffer solution</div>
           </div>
 
+          <!-- Gallery Slide 3 -->
           <div class="carousel-slide">
             <div class="image-wrapper" onclick="openModal(this)">
               <img src="gringing the sample.png" alt="Grinding the sample" loading="lazy">
@@ -336,6 +423,7 @@
             <div class="carousel-caption">Grinding plant tissue samples with liquid nitrogen for molecular analysis</div>
           </div>
             
+          <!-- Gallery Slide 4 -->
           <div class="carousel-slide">
             <div class="image-wrapper" onclick="openModal(this)">
               <img src="centrifuging sample.png" alt="Centrifuging sample" loading="lazy">
@@ -343,6 +431,7 @@
             <div class="carousel-caption">Centrifuging plant samples for enzyme extraction</div>
           </div>
 
+          <!-- Gallery Slide 5 -->
           <div class="carousel-slide">
             <div class="image-wrapper" onclick="openModal(this)">
               <img src="chili physiological data.png" alt="Chili physiological data" loading="lazy">
@@ -350,6 +439,7 @@
             <div class="carousel-caption">Recording physiological growth data from chili plants</div>
           </div>
 
+          <!-- Gallery Slide 6 -->
           <div class="carousel-slide">
             <div class="image-wrapper" onclick="openModal(this)">
               <img src="measuring chlorophile content on chili leaf.png" alt="Measuring chlorophyll content" loading="lazy">
@@ -358,27 +448,32 @@
           </div>
         </div>
 
-        <button class="carousel-btn next-btn" aria-label="Next image">&#10095;</button>
+        <!-- Next Button -->
+        <button class="carousel-btn next-btn" aria-label="Next image" style="position: absolute; right: 10px; top: 40%; transform: translateY(-50%); z-index: 20;">&#10095;</button>
       </div>
     </div>
   </section>
 
-  <!-- Lightbox Modal -->
+  <!-- ========================================== -->
+  <!-- 07. LIGHTBOX MODAL                         -->
+  <!-- ========================================== -->
   <div id="image-modal" class="modal">
     <span class="close-modal">&times;</span>
-    <img class="modal-content" id="full-image" alt="Expanded laboratory view">
+    <img class="modal-content" id="full-image">
     <div id="modal-caption-text"></div>
   </div>
 
-  <!-- Skills & Tools -->
-  <section id="skills" class="section" data-reveal>
+  <!-- ========================================== -->
+  <!-- 08. SKILLS & TOOLS                         -->
+  <!-- ========================================== -->
+  <section id="skills" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Expertise</span>
         <h2>Skills &amp; Tools</h2>
       </div>
       <div class="skills-grid">
-        <div class="card skill-group" data-reveal>
+        <div class="card skill-group">
           <h3>Laboratory &amp; Analytical</h3>
           <div class="tags">
             <span class="tag">DNA extraction</span>
@@ -387,7 +482,7 @@
             <span class="tag">Seed germination</span>
           </div>
         </div>
-        <div class="card skill-group" data-reveal>
+        <div class="card skill-group">
           <h3>Bioinformatics &amp; Computing</h3>
           <div class="tags">
             <span class="tag">R &amp; Python</span>
@@ -401,8 +496,10 @@
     </div>
   </section>
 
-  <!-- Professional Affiliations -->
-  <section id="affiliations" class="section section-alt" data-reveal>
+  <!-- ========================================== -->
+  <!-- 09. PROFESSIONAL AFFILIATIONS              -->
+  <!-- ========================================== -->
+  <section id="affiliations" class="section section-alt">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Network</span>
@@ -410,7 +507,9 @@
         <p class="section-subtext">Active memberships in global plant science and research organizations</p>
       </div>
       <div class="cards-grid">
-        <div class="card affil-card" data-reveal>
+
+        <!-- ASPB Card -->
+        <div class="card affil-card">
           <div class="affil-header">
             <img src="ASPB.png" alt="American Society of Plant Biologists Logo" class="affil-logo">
             <div class="affil-title-area">
@@ -424,7 +523,8 @@
           </div>
         </div>
 
-        <div class="card affil-card" data-reveal>
+        <!-- APS Card -->
+        <div class="card affil-card">
           <div class="affil-header">
             <img src="APS.png" alt="American Phytopathological Society Logo" class="affil-logo">
             <div class="affil-title-area">
@@ -435,15 +535,18 @@
           <p class="affil-desc">International scientific organization focused on plant health, plant pathology research, and crop protection against biotic and abiotic stressors.</p>
           <div class="affil-links">
             <a href="https://www.apsnet.org/" target="_blank" rel="noopener noreferrer" class="view-link">Official Website →</a>
-            <a href="https://badgecert.com/bc/html/show-badge.html?b=zfzvucqd" target="_blank" rel="noopener noreferrer" class="view-link badge-link">Verify Badge →</a>
+            <a href="https://badgecert.com/bc/html/show-badge.html?b=zfzvucqd" target="_blank" rel="noopener noreferrer" class="view-link badge-link">Verify Badge ↗</a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Leadership -->
-  <section id="leadership" class="section" data-reveal>
+  <!-- ========================================== -->
+  <!-- 10. LEADERSHIP & VOLUNTEER                 -->
+  <!-- ========================================== -->
+  <section id="leadership" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Community &amp; Impact</span>
@@ -451,7 +554,9 @@
       </div>
 
       <div class="cards-grid">
-        <div class="card affil-card" data-reveal>
+
+        <!-- Scout Member -->
+        <div class="card affil-card">
           <div class="affil-header">
             <img src="bd-scout-logo.png" alt="Bangladesh Scouts Logo" class="affil-logo">
             <div class="affil-title-area">
@@ -462,7 +567,8 @@
           <p class="affil-desc">Participated in youth development rallies, community service drives, outdoor survival camps, and team leadership workshops.</p>
         </div>
 
-        <div class="card affil-card" data-reveal>
+        <!-- Red Crescent Youth Volunteer -->
+        <div class="card affil-card">
           <div class="affil-header">
             <img src="red-crescent-logo.png" alt="Bangladesh Red Crescent Society Logo" class="affil-logo">
             <div class="affil-title-area">
@@ -472,12 +578,15 @@
           </div>
           <p class="affil-desc">Engaged in first-aid response training, voluntary blood donation campaigns, health awareness drives, and disaster relief initiatives.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section section-alt" data-reveal>
+  <!-- ========================================== -->
+  <!-- 11. CONTACT SECTION                        -->
+  <!-- ========================================== -->
+  <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Get in touch</span>
@@ -485,35 +594,38 @@
         <p class="section-subtext">Open to research collaborations, academic discussions, and graduate opportunities</p>
       </div>
       <div class="contact-grid">
-        <div class="card contact-card" data-reveal>
+        <div class="card contact-card">
           <a class="contact-row" href="mailto:tahrim.ag@student.sau.ac.bd">
-            <img src="gmail.png" alt="Gmail Logo" class="contact-icon-img">
+            <img src="gmail.png" alt="Gmail Logo" style="width: 28px; height: 28px; object-fit: contain;">
             <div class="contact-info">
               <span class="contact-label">EMAIL</span>
               <span class="contact-value">tahrim.ag@student.sau.ac.bd</span>
             </div>
           </a>
         </div>
-        <div class="card contact-card" data-reveal>
+        <div class="card contact-card">
           <a class="contact-row" href="tel:+8801305581682">
+            <div class="contact-icon">📞</div>
             <div class="contact-info">
               <span class="contact-label">PHONE</span>
               <span class="contact-value">+880 1305 581682</span>
             </div>
           </a>
         </div>
-        <div class="card contact-card" data-reveal>
+        <div class="card contact-card">
           <a class="contact-row" href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener">
-            <img src="linkedin.png" alt="Linkedin Logo" class="contact-icon-img">
+           <img src="linkedin.png" alt="Linkedin Logo" style="width: 28px; height: 28px; object-fit: contain;">
             <div class="contact-info">
               <span class="contact-label">LINKEDIN</span>
               <span class="contact-value"><strong>Md Tahrim Kobir Riyad</strong></span>
             </div>
           </a>
         </div>
-        <div class="card contact-card" data-reveal>
+        <div class="card contact-card">
           <div class="contact-row contact-row-static">
-            <img src="favicon1.png" alt="Sylhet Agricultural University" class="contact-icon-img">
+            <div class="contact-icon">
+              <img src="favicon1.png" alt="Sylhet Agricultural University" class="edu-icon-small">
+            </div>
             <div class="contact-info">
               <span class="contact-label">AFFILIATION</span>
               <span class="contact-value">Sylhet Agricultural University, Bangladesh</span>
@@ -524,21 +636,68 @@
     </div>
   </section>
 
+  <!-- ========================================== -->
+  <!-- 12. FOOTER                                 -->
+  <!-- ========================================== -->
   <footer>
     <div class="container footer-content">
       <p>© 2026 <strong>Md Tahrim Kobir Riyad</strong> · tahrim.ag@student.sau.ac.bd</p>
       <div class="footer-links">
         <a href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener">
-          <img src="linkedin.png" alt="Linkedin Logo" class="footer-icon">
-        </a>
+        <img src="linkedin.png" alt="Linkedin Logo" style="width: 28px; height: 28px; object-fit: contain;"></a>
         <a href="mailto:tahrim.ag@student.sau.ac.bd" target="_blank" rel="noopener">
-          <img src="gmail.png" alt="Gmail Logo" class="footer-icon">
-        </a>
+        <img src="gmail.png" alt="Gmail Logo" style="width: 28px; height: 28px; object-fit: contain;"></a>
         <a href="#hero" aria-label="Back to top" class="back-to-top">↑</a>
       </div>
     </div>
   </footer>
 
-  <script src="motion.js" defer></script>
+  <!-- ========================================== -->
+  <!-- 13. JAVASCRIPT / FUNCTIONALITY             -->
+  <!-- ========================================== -->
+  <script>
+    // Navigation toggle logic
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Image Carousel Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextButton = document.querySelector('.next-btn');
+      const prevButton = document.querySelector('.prev-btn');
+      let currentIndex = 0;
+
+      function updateCarousel(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel(currentIndex);
+      });
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel(currentIndex);
+      });
+    });
+  </script>
 </body>
 </html>
