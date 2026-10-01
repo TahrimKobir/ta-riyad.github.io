@@ -1335,3 +1335,74 @@ footer {
     font-size: 0.75rem;
   }
 }
+
+
+/* =========================================================
+   15. THEME UPGRADE: dark forest hero, gold details, tinted sections
+   (Everything here reads from the palette at the top, so Theme B
+   navy also works. Delete this whole section to go back to the
+   lighter look.)
+   ========================================================= */
+
+/* Navbar: fine gold hairline under the ivory bar */
+.navbar { border-bottom: 1px solid rgba(var(--accent-rgb), 0.35); }
+
+/* Hero: deep forest gradient with a warm gold glow */
+.hero-section {
+  background:
+    radial-gradient(ellipse at 85% 10%, rgba(var(--accent-rgb), 0.16), transparent 55%),
+    linear-gradient(135deg, rgb(var(--ink-rgb)) 0%, rgb(var(--primary-rgb)) 100%);
+  padding: 80px 0 90px;
+}
+.hero-section::before { background: radial-gradient(circle, rgba(var(--accent-rgb), 0.14), transparent 62%); }
+.hero-section::after  { background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 62%); }
+
+.hero-text h1 { color: #FAF8F3; }
+.hero-text h1 em { color: var(--accent-soft); }
+
+.institution-badge {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(var(--accent-rgb), 0.55);
+  color: var(--accent-soft);
+  backdrop-filter: blur(6px);
+}
+.institution-badge:hover { border-color: var(--accent-soft); color: #fff; }
+
+.subtitle { color: var(--accent-soft); }
+.bio { color: rgba(250, 248, 243, 0.84); }
+
+.stats-row::before { background: rgba(var(--accent-rgb), 0.45); }
+.stat-num { color: #FAF8F3; }
+.stat-label { color: var(--accent-soft); }
+
+/* Portrait: thin gold frame set slightly off the photo */
+.profile-frame {
+  outline: 1px solid rgba(var(--accent-rgb), 0.75);
+  outline-offset: 10px;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+}
+.profile-frame:hover { box-shadow: 0 34px 70px -20px rgba(0, 0, 0, 0.65); }
+.profile-img { box-shadow: none; }
+
+.scroll-cue { background: rgba(255, 255, 255, 0.18); }
+.scroll-cue::after { background: linear-gradient(180deg, transparent, var(--accent)); }
+
+/* Sections: alternate sections get a soft sage band */
+.section-alt {
+  background: rgba(var(--primary-light-rgb), 0.6);
+  border-block: 1px solid var(--border);
+}
+
+/* Cards: green-to-gold edge is always visible, not only on hover */
+.card-accent-line { background: linear-gradient(180deg, var(--primary-green), var(--accent)); }
+.premium-timeline-card { border-color: rgba(var(--accent-rgb), 0.28); }
+.premium-timeline-card:hover { border-color: rgba(var(--accent-rgb), 0.6); }
+
+/* Footer: dark forest with a gold top rule */
+footer {
+  background: rgb(var(--ink-rgb));
+  border-top: 2px solid var(--accent);
+}
+.footer-content p { color: rgba(250, 248, 243, 0.7); }
+.footer-links a { color: var(--accent-soft); }
+.footer-links a:hover { color: #fff; }
