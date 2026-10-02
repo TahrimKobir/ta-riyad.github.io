@@ -19,6 +19,8 @@
   document.querySelectorAll('[data-split]').forEach(function (el) {
     if (el.children.length) return;                 // leave mixed markup alone
     var words = el.textContent.trim().split(/\s+/);
+    if (!words[0]) return; // exit if empty
+    
     el.textContent = '';
     words.forEach(function (word, i) {
       var mask = document.createElement('span');
@@ -182,10 +184,7 @@
     });
   }
 
-  /* ---------- Stat count-up ----------
-     <span class="stat-num" data-count="3.94"></span>
-     <span class="stat-num" data-count="412" data-suffix="+"></span>
-  */
+  /* ---------- Stat count-up ---------- */
   function countUp(el) {
     var raw = el.dataset.count;
     var end = parseFloat(raw);
@@ -217,3 +216,68 @@
     counters.forEach(countUp);
   }
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Carousel Logic
+  const track = document.querySelector('.carousel-track');
+  if (track) {
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel(currentIndex);
+      });
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel(currentIndex);
+      });
+    }
+  }
+
+  // Modal Logic
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('full-image');
+  const captionText = document.getElementById('modal-caption-text');
+  const closeBtn = document.querySelector('.close-modal');
+
+  // Define global function carefully
+  window.openModal = function(element) {
+    if (!modal || !modalImg) return;
+    
+    const img = element.querySelector('img');
+    // Safely check for nextElementSibling before reading innerText
+    const caption = element.nextElementSibling ? element.nextElementSibling.innerText : '';
+    
+    if (img) modalImg.src = img.src;
+    if (captionText) captionText.innerText = caption;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  }
+
+  window.addEventListener('click', (event) => {
+    // Check if modal exists before checking the target
+    if (modal && event.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
