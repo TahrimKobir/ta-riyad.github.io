@@ -694,160 +694,123 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 /* =========================================================
    7. TIMELINE / EDUCATION & EXPERIENCE (PREMIUM DESIGN)
    ========================================================= */
-.timeline-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 850px;
-  margin: 0 auto;
-}
+/* ==========================================
+   RESEARCH SUPERVISOR
+   ========================================== */
 
-/* Base Card Styling */
-.premium-timeline-card {
-  position: relative;
-  background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #eaeaea);
-  border-radius: 16px;
-  padding: 0; /* Padding is handled by inner content */
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-              box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.premium-timeline-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(43, 109, 74, 0.08);
-  border-color: transparent;
-}
-
-/* The Animated Left Accent Line */
-.card-accent-line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--border, #eaeaea);
-  transition: all 0.4s ease;
-}
-
-.premium-timeline-card:hover .card-accent-line {
-  width: 6px;
-  /* Adjust the colors below if you want a different gradient vibe */
-  background: linear-gradient(180deg, var(--primary-green, #2b6d4a) 0%, #4caf50 100%);
-  box-shadow: 2px 0 12px rgba(43, 109, 74, 0.3);
-}
-
-/* Inner Layout */
-.timeline-content {
-  padding: 32px 40px 32px 36px;
-}
-
-.timeline-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-/* Logo & Title Alignment */
-.timeline-title-wrapper {
+.supervisor-box {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 15px 17px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  background: rgba(248, 250, 249, 0.75);
+  transition: all 0.25s ease;
 }
 
-/* Standalone Logo Styling (No Box) */
-.timeline-logo {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  transition: transform 0.3s ease, filter 0.3s ease;
+.supervisor-box:hover {
+  transform: translateY(-2px);
+  border-color: rgba(46, 125, 50, 0.22);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
-.premium-timeline-card:hover .timeline-logo {
-  transform: scale(1.05) rotate(-2deg);
-  filter: drop-shadow(0 4px 6px rgba(43, 109, 74, 0.15));
+
+/* Supervisor icon */
+
+.supervisor-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: rgba(46, 125, 50, 0.10);
+  color: #2e7d32;
+  font-size: 17px;
 }
 
-/* Typography Details */
-.timeline-title-group h3 {
-  font-size: 1.2rem;
+
+/* Supervisor text */
+
+.supervisor-info {
+  min-width: 0;
+}
+
+.supervisor-label {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 10px;
   font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 4px 0;
-  transition: color 0.3s ease;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7a817d;
 }
 
-.premium-timeline-card:hover .timeline-title-group h3 {
-  color: var(--primary-green, #2b6d4a);
-}
-
-.timeline-sub {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-muted, #666);
+.supervisor-info h4 {
   margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #202522;
 }
 
-/* Sleek Date Badge */
-.timeline-date-badge {
+.supervisor-info p {
+  margin: 3px 0 5px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #68706b;
+}
+
+.supervisor-info a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 8px 16px;
-  background: #f4f4f4;
-  color: #555;
-  border-radius: 30px;
-  letter-spacing: 0.3px;
+  gap: 6px;
+  font-size: 11px;
+  color: #2e7d32;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/* Special styling for "Present" dates */
-.active-date {
-  background: rgba(43, 109, 74, 0.08);
-  color: var(--primary-green, #2b6d4a);
+.supervisor-info a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
 }
 
-/* Pulsing dot animation for current roles */
-.pulse-dot {
-  display: block;
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary-green, #2b6d4a);
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(43, 109, 74, 0.5);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(43, 109, 74, 0.5); }
-  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(43, 109, 74, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(43, 109, 74, 0); }
-}
-
-/* Description Text */
-.timeline-desc {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
-  margin: 0;
-  padding-left: 68px; /* Aligns perfectly with the text above (48px logo + 20px gap) */
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .timeline-content { padding: 24px; }
-  .timeline-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .timeline-desc { padding-left: 0; margin-top: 16px; }
+.supervisor-info a i {
+  font-size: 10px;
 }
 
 
+/* Mobile */
 
+@media (max-width: 600px) {
+
+  .supervisor-box {
+    align-items: flex-start;
+    padding: 13px;
+  }
+
+  .supervisor-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .supervisor-info h4 {
+    font-size: 14px;
+  }
+
+  .supervisor-info p {
+    font-size: 11px;
+  }
+
+  .supervisor-info a {
+    font-size: 10px;
+    word-break: break-word;
+  }
+}
 
 
 
