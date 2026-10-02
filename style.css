@@ -953,45 +953,152 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
    10. CONTACT
    Actionable contact rows with animated icons
    ========================================================= */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+#contact {
+  padding: 5rem 1.5rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
-.contact-card { padding: 0; }
-.contact-card::before { display: none; }
+.contact-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header .eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-header .section-subtext {
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.contact-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08);
+}
+
+.contact-card.card-rg {
+  border-left: 4px solid #00ccbb;
+}
+
+.contact-card.card-orcid {
+  border-left: 4px solid #a6ce39;
+}
 
 .contact-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 24px;
-  border-radius: 16px;
-  transition: background var(--t-base) var(--ease), transform 450ms var(--ease), box-shadow 450ms var(--ease);
-}
-.contact-row:not(.contact-row-static):hover {
-  background: rgba(235, 243, 237, 0.5);
-  transform: translate3d(0, -4px, 0);
-  box-shadow: 0 10px 26px -14px rgba(43, 109, 74, 0.35);
+  gap: 1.25rem;
+  text-decoration: none;
+  color: inherit;
 }
 
-.contact-icon {
-  font-size: 1.5rem;
-  color: var(--primary-green);
+.icon-wrapper {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px; height: 48px;
-  background: var(--primary-green-light);
-  border-radius: 50%;
   flex-shrink: 0;
-  transition: transform 500ms var(--ease-spring);
+  transition: background 0.2s ease;
 }
-.contact-row:not(.contact-row-static):hover .contact-icon { transform: scale(1.12) rotate(-6deg); }
 
-.contact-info { display: flex; flex-direction: column; }
-.contact-label {
-  font-size: 0.7rem; font-weight: 600; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;
+.contact-card:hover .icon-wrapper {
+  background: #f1f5f9;
 }
-.contact-value { font-size: 0.95rem; font-weight: 500; color: var(--text-heading); }
+
+.icon-wrapper img, 
+.icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  overflow: hidden;
+}
+
+.contact-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.contact-label.rg-label {
+  color: #00a89a;
+}
+
+.contact-label.orcid-label {
+  color: #7ca818;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-card:hover .contact-value {
+  color: #2563eb;
+}
+
+.contact-card.card-static:hover .contact-value {
+  color: #1e293b;
+}
 
 /* =========================================================
    11. FOOTER
