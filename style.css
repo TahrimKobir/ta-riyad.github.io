@@ -691,83 +691,99 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
 
 
 
-/* =========================================================
-   7. TIMELINE / EDUCATION & EXPERIENCE (PREMIUM DESIGN)
-   ========================================================= */
-/* ==========================================
-   RESEARCH SUPERVISOR
-   ========================================== */
 
+
+/* =========================================================
+   7. TIMELINE / EDUCATION & EXPERIENCE
+
+/* ==========================================
+   TIMELINE LOGO
+   ========================================== */
+.institution-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 4px;
+  padding: 4px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   RESEARCH SUPERVISOR BOX
+   ========================================== */
 .supervisor-box {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 22px;
-  padding: 15px 17px;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 14px;
-  background: rgba(248, 250, 249, 0.75);
-  transition: all 0.25s ease;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid rgba(46, 125, 50, 0.15);
+  border-radius: 8px; /* Sharper, more formal corners */
+  background: #fafcfb; /* Clean, slightly cool off-white */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .supervisor-box:hover {
   transform: translateY(-2px);
-  border-color: rgba(46, 125, 50, 0.22);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  border-color: rgba(46, 125, 50, 0.4);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.08);
+  background: #ffffff;
 }
 
-
-/* Supervisor icon */
-
+/* Supervisor Icon */
 .supervisor-icon {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 11px;
-  background: rgba(46, 125, 50, 0.10);
+  border-radius: 6px;
+  background: rgba(46, 125, 50, 0.08);
   color: #2e7d32;
-  font-size: 17px;
+  font-size: 18px;
 }
 
-
-/* Supervisor text */
-
+/* Supervisor Typography */
 .supervisor-info {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .supervisor-label {
   display: block;
-  margin-bottom: 2px;
-  font-size: 10px;
+  margin-bottom: 4px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #7a817d;
+  color: #555d58;
 }
 
 .supervisor-info h4 {
   margin: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: #202522;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1f1c;
+  letter-spacing: -0.01em;
 }
 
 .supervisor-info p {
-  margin: 3px 0 5px;
-  font-size: 12px;
-  line-height: 1.45;
-  color: #68706b;
+  margin: 4px 0 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #4a524d;
 }
 
 .supervisor-info a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
   color: #2e7d32;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -778,39 +794,40 @@ html:not(.js) .nav-links a[aria-current="page"] { background: var(--primary-gree
   text-decoration: underline;
 }
 
-.supervisor-info a i {
-  font-size: 10px;
-}
-
-
-/* Mobile */
-
+/* Mobile Responsiveness */
 @media (max-width: 600px) {
-
   .supervisor-box {
     align-items: flex-start;
-    padding: 13px;
+    padding: 14px 16px;
+    gap: 12px;
   }
 
   .supervisor-icon {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 16px;
   }
 
   .supervisor-info h4 {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .supervisor-info p {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .supervisor-info a {
-    font-size: 10px;
-    word-break: break-word;
+    font-size: 11px;
+    word-break: break-all;
   }
 }
+
+
+
+
+
+
 
 
 
