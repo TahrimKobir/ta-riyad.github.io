@@ -752,53 +752,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- ========================================== -->
-  <!-- 13. JAVASCRIPT / FUNCTIONALITY             -->
-  <!-- ========================================== -->
-  <script>
-    // Navigation toggle logic
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Image Carousel Logic
-    document.addEventListener('DOMContentLoaded', () => {
-      const track = document.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      const nextButton = document.querySelector('.next-btn');
-      const prevButton = document.querySelector('.prev-btn');
-      let currentIndex = 0;
-
-      function updateCarousel(index) {
-        track.style.transform = `translateX(-${index * 100}%)`;
-      }
-
-      nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel(currentIndex);
-      });
-
-      prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateCarousel(currentIndex);
-      });
-    });
   </script>
 </body>
 </html>
