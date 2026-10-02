@@ -20,9 +20,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Tahrim Kobir Riyad - Portfolio</title>
-
-  <!-- Add your website tab favicon here -->
-  <link rel="icon" type="image/png" href="sau.png">
+  <link rel="icon" type="image/png" href="sau.png?v=2">
 </head>
 
 <!-- Fonts & Styles -->
@@ -610,96 +608,79 @@
   </section>
 
 
-
-        <!-- ========================================== -->
-<!-- 11. CONTACT & ACADEMIC PRESENCE SECTION    -->
 <!-- ========================================== -->
-<section id="contact">
+<!-- 11. CONTACT SECTION                        -->
+<!-- ========================================== -->
+<style>
+  #contact-formal { padding: 4rem 1rem; background: #f8fafc; font-family: sans-serif; }
+  .contact-container { max-width: 1000px; margin: 0 auto; }
+  .contact-header { text-align: center; margin-bottom: 3rem; }
+  .contact-header h2 { font-size: 2rem; color: #0f172a; margin-bottom: 0.5rem; }
+  .contact-header p { color: #64748b; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .contact-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+  .contact-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+  .contact-info { display: flex; flex-direction: column; overflow: hidden; }
+  .contact-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+  .contact-value { font-weight: 600; color: #1e293b; font-size: 0.95rem; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+  
+  /* Brand Colors */
+  .card-rg { border-left: 4px solid #00ccbb; }
+  .card-rg .contact-label { color: #00ccbb; }
+  .card-orcid { border-left: 4px solid #a6ce39; }
+  .card-orcid .contact-label { color: #a6ce39; }
+</style>
+
+<section id="contact-formal">
   <div class="contact-container">
-    <div class="section-header">
-      <span class="eyebrow">Get in touch</span>
+    <div class="contact-header">
       <h2>Contact & Academic Profiles</h2>
-      <p class="section-subtext">Open to research collaborations, academic discussions, and graduate opportunities.</p>
+      <p>Open to research collaborations, academic discussions, and graduate opportunities.</p>
     </div>
 
     <div class="contact-grid">
       <!-- Email -->
-      <div class="contact-card">
-        <a class="contact-row" href="mailto:tahrim.ag@student.sau.ac.bd">
-          <div class="icon-wrapper">
-            <img src="gmail.png" alt="Gmail">
-          </div>
-          <div class="contact-info">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">tahrim.ag@student.sau.ac.bd</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Phone -->
-      <div class="contact-card">
-        <a class="contact-row" href="tel:+8801305581682">
-          <div class="icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="#475569">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.499-5.24-3.843-6.739-6.739l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-          </div>
-          <div class="contact-info">
-            <span class="contact-label">Phone</span>
-            <span class="contact-value">+880 1305 581682</span>
-          </div>
-        </a>
-      </div>
+      <a class="contact-card" href="mailto:tahrim.ag@student.sau.ac.bd">
+        <img src="gmail.png" alt="Gmail" style="width: 40px; height: 40px; object-fit: contain;">
+        <div class="contact-info">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">tahrim.ag@student.sau.ac.bd</span>
+        </div>
+      </a>
 
       <!-- LinkedIn -->
-      <div class="contact-card">
-        <a class="contact-row" href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank" rel="noopener">
-          <div class="icon-wrapper">
-            <img src="linkedin.png" alt="LinkedIn">
-          </div>
-          <div class="contact-info">
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">Md Tahrim Kobir Riyad</span>
-          </div>
-        </a>
-      </div>
+      <a class="contact-card" href="http://www.linkedin.com/in/mdtahrimkobirriyad" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn" style="width: 40px; height: 40px; object-fit: contain;">
+        <div class="contact-info">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">Md Tahrim Kobir Riyad</span>
+        </div>
+      </a>
 
       <!-- ResearchGate -->
-      <div class="contact-card card-rg">
-        <a class="contact-row" href="https://www.researchgate.net/profile/Md-Tahrim-Kobir-Riyad" target="_blank" rel="noopener">
-          <div class="icon-wrapper">
-            <img src="researchgate.png" alt="ResearchGate">
-          </div>
-          <div class="contact-info">
-            <span class="contact-label rg-label">ResearchGate</span>
-            <span class="contact-value">Md Tahrim Kobir Riyad</span>
-          </div>
-        </a>
-      </div>
+      <a class="contact-card card-rg" href="https://www.researchgate.net/profile/Md-Tahrim-Kobir-Riyad" target="_blank">
+        <img src="researchgate.png" alt="ResearchGate" style="width: 40px; height: 40px; object-fit: contain;">
+        <div class="contact-info">
+          <span class="contact-label">ResearchGate</span>
+          <span class="contact-value">Md Tahrim Kobir Riyad</span>
+        </div>
+      </a>
 
       <!-- ORCID -->
-      <div class="contact-card card-orcid">
-        <a class="contact-row" href="https://orcid.org/0009-0006-5751-8128" target="_blank" rel="noopener">
-          <div class="icon-wrapper">
-            <img src="orchid.png" alt="ORCID">
-          </div>
-          <div class="contact-info">
-            <span class="contact-label orcid-label">ORCID iD</span>
-            <span class="contact-value">0009-0006-5751-8128</span>
-          </div>
-        </a>
-      </div>
+      <a class="contact-card card-orcid" href="https://orcid.org/0009-0006-5751-8128" target="_blank">
+        <img src="orcid.png" alt="ORCID" style="width: 40px; height: 40px; object-fit: contain;">
+        <div class="contact-info">
+          <span class="contact-label">ORCID iD</span>
+          <span class="contact-value">0009-0006-5751-8128</span>
+        </div>
+      </a>
 
       <!-- Affiliation -->
-      <div class="contact-card card-static">
-        <div class="contact-row">
-          <div class="icon-wrapper">
-            <img src="favicon1.png" alt="Sylhet Agricultural University">
-          </div>
-          <div class="contact-info">
-            <span class="contact-label">Affiliation</span>
-            <span class="contact-value">Sylhet Agricultural University</span>
-          </div>
+      <div class="contact-card">
+        <img src="favicon1.png" alt="Sylhet Agricultural University" style="width: 40px; height: 40px; object-fit: contain;">
+        <div class="contact-info">
+          <span class="contact-label">Affiliation</span>
+          <span class="contact-value">Sylhet Agricultural University</span>
         </div>
       </div>
     </div>
